@@ -33,10 +33,28 @@ for (var m = 0; m < remainder; m++) {
 //    n.innerText = day_nums[]
 //}
 for (var n = 0; n < 42; n++) {
-    day_els[n].innerText = day_nums[n]
+    day_els[n].innerHTML = day_nums[n] + "<br /><div id='events_" + day_nums[n] +"' style='text-align: center;'><div class='event_rise'></div></div>"
 };
 
 //<div style="text-align: center;">
 //    <div style="width: 5px; height: 5px; background-color: green; margin: auto; display: inline-block"></div>
 //    <div style="width: 5px; height: 5px; background-color: green; margin: auto; display: inline-block"></div>
 //</div>
+cyear = date.getFullYear();
+cmonth = date.getMonth()+1;
+checkholdEl = document.getElementById("checkbox_hold");
+for (var o in calendars) {
+    console.log(o);
+    for (var p in calendars[o]) {
+        console.log(p);
+        if ((calendars[o][p][0] != cmonth) | (calendars[o][p][2] != cyear)) {
+        } else {
+            targetEl = document.getElementById("events_" + calendars[o][p][1].toString());
+            if (targetEl.innerHTML != '<div class="event_rise"></div>') {
+                targetEl.innerHTML += '<div class="event_spacer"></div><div class="event" style="background-color: ' + calendars[o][p][4] + ';" title="' + calendars[o][p][3] + '"></div>'
+            } else {
+                targetEl.innerHTML += '<div class="event ' + o + '" style="background-color: ' + calendars[o][p][4] + ';" title="' + calendars[o][p][3] + '"></div>'
+            };
+        };
+    };
+};

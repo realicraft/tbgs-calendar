@@ -27,3 +27,21 @@ body {
 .week {
     height: calc(45px + (1px / 3));
 }
+.event {
+    width: 5px;
+    height: 5px;
+    margin: auto;
+    display: inline-block;
+}
+.event_spacer {
+    width: 2px;
+    height: 5px;
+    margin: auto;
+    display: inline-block;
+}
+.event_rise {
+    width: 0px;
+    height: 5px;
+    margin: auto;
+    display: inline-block;
+}
