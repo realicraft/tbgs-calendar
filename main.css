@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#cal_table {
+    border: 3px solid black;
+    border-radius: 7px;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    border-collapse: collapse;
+}
+#cal_table tr, #cal_table tr th, #cal_table tr td {
+    border: 3px solid black;
+}
+#cal_head {
+    height: 25px;
+    font-family: monospace;
+}
+
+.day1, .day3, .day5, .day7 {
+    background-color: #dfdfdf;
+}
+.day2, .day4, .day6 {
+    background-color: #bfbfbf;
+}
