@@ -47,14 +47,14 @@ for (var o in calendars) {
     console.log("parsing " + o);
     checkholdEl.innerHTML += "<div class='togglebox'><input type='checkbox' checked id='toggle_" + o + "' name='" + o + "' value='" + o + "'><label for='toggle_" + o + "'> " + calendars[o][0] + "</label></div>";
     for (var p in calendars[o].slice(1)) {
-        if ((calendars[o][p][0] != cmonth) | (calendars[o][p][2] != cyear)) {
+        if ((calendars[o][parseInt(p)+1][0] != cmonth) | (calendars[o][parseInt(p)+1][2] != cyear)) {
         } else {
-            var targetEl = document.getElementById("events_" + calendars[o][p][1].toString());
+            var targetEl = document.getElementById("events_" + calendars[o][parseInt(p)+1][1].toString());
             
             if (targetEl.innerHTML != '<div class="event_rise"></div>') {
-                targetEl.innerHTML += '<div class="event_spacer"></div><div class="event ' + o + '" style="background-color: ' + calendars[o][p][4] + ';" title="' + calendars[o][p][3] + '"></div>'
+                targetEl.innerHTML += '<div class="event_spacer"></div><div class="event ' + o + '" style="background-color: ' + calendars[o][parseInt(p)+1][4] + ';" title="' + calendars[o][parseInt(p)+1][3] + '"></div>'
             } else {
-                targetEl.innerHTML += '<div class="event ' + o + '" style="background-color: ' + calendars[o][p][4] + ';" title="' + calendars[o][p][3] + '"></div>'
+                targetEl.innerHTML += '<div class="event ' + o + '" style="background-color: ' + calendars[o][parseInt(p)+1][4] + ';" title="' + calendars[o][parseInt(p)+1][3] + '"></div>'
             };
         };
     };
