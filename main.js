@@ -40,21 +40,41 @@ for (var n = 0; n < 42; n++) {
 //    <div style="width: 5px; height: 5px; background-color: green; margin: auto; display: inline-block"></div>
 //    <div style="width: 5px; height: 5px; background-color: green; margin: auto; display: inline-block"></div>
 //</div>
-cyear = date.getFullYear();
-cmonth = date.getMonth()+1;
-checkholdEl = document.getElementById("checkbox_hold");
+var cyear = date.getFullYear();
+var cmonth = date.getMonth()+1;
+var checkholdEl = document.getElementById("checkbox_hold");
 for (var o in calendars) {
-    console.log(o);
-    for (var p in calendars[o]) {
-        console.log(p);
+    console.log("parsing " + o);
+    checkholdEl.innerHTML += "<div class='togglebox'><input type='checkbox' checked id='toggle_" + o + "' name='" + o + "' value='" + o + "'><label for='toggle_" + o + "'> " + calendars[o][0] + "</label></div>";
+    for (var p in calendars[o].slice(1)) {
         if ((calendars[o][p][0] != cmonth) | (calendars[o][p][2] != cyear)) {
         } else {
-            targetEl = document.getElementById("events_" + calendars[o][p][1].toString());
+            var targetEl = document.getElementById("events_" + calendars[o][p][1].toString());
+            
             if (targetEl.innerHTML != '<div class="event_rise"></div>') {
-                targetEl.innerHTML += '<div class="event_spacer"></div><div class="event" style="background-color: ' + calendars[o][p][4] + ';" title="' + calendars[o][p][3] + '"></div>'
+                targetEl.innerHTML += '<div class="event_spacer"></div><div class="event ' + o + '" style="background-color: ' + calendars[o][p][4] + ';" title="' + calendars[o][p][3] + '"></div>'
             } else {
                 targetEl.innerHTML += '<div class="event ' + o + '" style="background-color: ' + calendars[o][p][4] + ';" title="' + calendars[o][p][3] + '"></div>'
             };
         };
     };
 };
+for (var q in calendars) {
+    console.log("adding event listener to " + q)
+    var checkEl = document.getElementById("toggle_" + q)
+    checkEl.addEventListener("change", (event) => {
+        if (event.target.checked == true) {
+            var eventEls = document.getElementsByClassName(event.target.name);
+            for (var q in eventEls) {
+                var classes = eventEls[q].classList;
+                if (classes) {classes.remove("hidden");};
+            };
+        } else {
+            var eventEls = document.getElementsByClassName(event.target.name);
+            for (var q in eventEls) {
+                var classes = eventEls[q].classList;
+                if (classes) {classes.add("hidden");};
+            };
+        };
+    });
+}

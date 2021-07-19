@@ -6,7 +6,7 @@ body {
 #cal_table {
     border: 3px solid black;
     width: 300px;
-    height: 300px;
+    min-height: 300px;
     margin: auto;
     border-collapse: collapse;
 }
@@ -17,7 +17,6 @@ body {
     height: 25px;
     font-family: monospace;
 }
-
 .day1, .day3, .day5, .day7 {
     background-color: #dfdfdf;
 }
@@ -42,6 +41,20 @@ body {
 .event_rise {
     width: 0px;
     height: 5px;
+    margin: auto;
+    display: inline-block;
+}
+.hidden {
+    display: none;
+}
+#checkbox_hold {
+    width: 600px;
+    margin: auto;
+    border: 3px solid black;
+    border-radius: 7px;
+}
+.togglebox {
+    width: 200px;
     margin: auto;
     display: inline-block;
 }

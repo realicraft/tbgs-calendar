@@ -7,6 +7,7 @@
     </head>
     <body>
         <h1>TBGs Calendar</h1>
+        <br />
         <div id="cal_contain">
             <table id="cal_table">
                 <tr id="cal_head">
@@ -74,11 +75,21 @@
                 </tr>
             </table>
         </div>
-        <div id="checkbox_hold" style="width: 300px;"></div>
+        <br />
+        <p>
+            The calender above tracks various events, represented by colored squares.
+            <br />
+            These events have names, shown by hovering over them, and can be hidden using the checkboxes below.
+        </p>
+        <br />
+        <div id="checkbox_hold"></div>
         <script>
             var calendars = {}; //setup for custom calendars
         </script>
-        <script src="cals/test.js"></script>
+        <!--Add calendar scripts here-->
+        <!--<script src="cals/test.js"></script>-->
+        <script src="cals/fs3.js"></script>
+        <!----------------------------->
         <script src="main.js"></script>
     </body>
 </html>
