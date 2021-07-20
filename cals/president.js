@@ -1,10 +1,8 @@
 //[month, day, year, title, color]
 calendars["pres"] = [
-    "President Elections",
-    [7, 25, 2021, "Election 18", "blue"],
-    [8,  1, 2021, "Election 19", "blue"],
-    [8,  8, 2021, "Election 20", "blue"],
-    [8, 15, 2021, "Election 21", "blue"],
-    [8, 22, 2021, "Election 22", "blue"],
-    [8, 29, 2021, "Election 23", "blue"]
-]
+    "President Elections"
+];
+for (var i = 0; i < 40; i++) {
+  elec_date = new Date(2021, 3, 28+(7*i));
+  calendars["pres"].append([elec_date.getMonth(), elec_date.getDate(), elec_date.getFullYear(), "Election "+i.toString(), "blue"]);
+};
